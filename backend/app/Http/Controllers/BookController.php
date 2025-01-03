@@ -37,13 +37,7 @@ class BookController extends Controller
             'penerbit' => 'required',
             'genre' => 'required',
             'deskripsi' => 'required',
-            'foto' => 'nullable|file|mimes:png,jpg,jpeg',
         ]);
-
-        if ($request->hasFile('foto')) {
-            $path = $request->file('foto')->store('books', 'public');
-            $validated['foto'] = $path;
-        }
 
         $book = Book::create($validated);
 
@@ -88,17 +82,7 @@ class BookController extends Controller
             'penerbit' => 'nullable',
             'genre' => 'nullable',
             'deskripsi' => 'nullable',
-            'foto' => 'nullable|file|mimes:png,jpg,jpeg'
         ]);
-
-        if ($request->hasFile('foto')) {
-            if ($book->foto && \Storage::exists('public/' . $book->foto)) {
-                \Storage::delete('public/' . $book->foto);
-            }
-
-            $path = $request->file('foto')->store('books', 'public');
-            $validated['foto'] = $path;
-        }
 
         $book->update($validated);
 
