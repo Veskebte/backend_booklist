@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ReplyController;
 
@@ -20,8 +19,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/books/{id}', [BookController::class, 'destroy']);
     Route::post('/books/{id}/favorite', [BookController::class, 'favorite']);
     Route::delete('/books/{id}/favorite', [BookController::class, 'unfavorite']);
-    Route::get('/images', [ImageController::class, 'index']);
-    Route::post('/images', [ImageController::class, 'store']);
 
     Route::get('/books/{bookId}/replies', [ReplyController::class, 'index']);
     Route::post('replies', [ReplyController::class, 'store']);

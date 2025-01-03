@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('penerbit');
             $table->string('genre');
             $table->string('deskripsi');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

@@ -13,10 +13,11 @@ class Book extends Model
         'penerbit',
         'genre',
         'deskripsi',
+        'foto',
     ];
 
-    public function images(){
-        return $this->hasMany(Image::class);
+    public function getFotoAttribute($value) {
+        return $value ? asset('storage/'.$value) : null;
     }
 
     public function favorites() {
