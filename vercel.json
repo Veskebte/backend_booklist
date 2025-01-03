@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "backend/artisan",
+        "use": "@vercel/php",
+        "config": {
+          "framework": "laravel"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "backend/public/index.php"
+      }
+    ]
+  }
+  
